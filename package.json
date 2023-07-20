@@ -14,7 +14,8 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.7.5",
-    "graphql": "^16.7.1"
+    "graphql": "^16.7.1",
+    "pg": "^8.11.1"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",

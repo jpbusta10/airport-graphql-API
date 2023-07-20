@@ -31,6 +31,7 @@ services:
       - db_data:/var/lib/postgresql/data
       - ./src/db/schemas/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - ./src/db/schemas/airport.sql:/docker-entrypoint-initdb.d/airport.sql
+      - ./src/db/schemas/passenger.sql:/docker-entrypoint-initdb.d/passenger.sql
     ports:
       - "5432:5432"
     

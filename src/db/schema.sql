@@ -27,5 +27,5 @@ CREATE TABLE trip{
     airport_2 VARCHAR(255) NOT NULL,
     trip_date TIMESTAMP,
     CONSTRAINT fk_airport_1 VARCHAR(255) REFERENCES airport (airport_code) ON DELETE CASCADE,
-    CONSTRAINTS fk_airport_2 VARCHAR(255) REFERENCES airport (airport_code) ON DELETE CASCADE
+    CONSTRAINT fk_airport_2 VARCHAR(255) REFERENCES airport (airport_code) ON DELETE CASCADE
 }
