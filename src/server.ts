@@ -1,8 +1,8 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import  airPortResolver  from './resolvers/AirportResolver'; 
+import airportResolver from './resolvers/AirportResolver';
 
-// The GraphQL schema
+
 const typeDefs = `
   type Airport {
     airport_code: String!
@@ -16,10 +16,10 @@ const typeDefs = `
   }
 `;
 
-// Create an Apollo Server instance with the type definitions (schema) and resolvers
+
 const server = new ApolloServer({ 
     typeDefs, 
-    resolvers: airPortResolver });
+    resolvers: airportResolver });
 
 
 const { url } = await startStandaloneServer(server, {
