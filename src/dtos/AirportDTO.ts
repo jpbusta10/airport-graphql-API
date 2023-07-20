@@ -30,3 +30,4 @@ class AirportDTO{
     }
 
 }
+export default AirportDTO;

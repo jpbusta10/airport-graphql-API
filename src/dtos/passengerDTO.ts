@@ -45,3 +45,5 @@ class PassengerDTO {
     }
 
 }
+
+export default PassengerDTO;
