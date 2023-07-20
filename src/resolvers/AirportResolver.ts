@@ -1,4 +1,4 @@
-import { AirPortRepository } from "../repository/AirPortRepository";
+import { AirPortRepository } from "../repository/AirPortRepository.js";
 
 const airPortRepository = new AirPortRepository();
 

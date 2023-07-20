@@ -3,7 +3,7 @@ CREATE DATABASE airportDB;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE user{
+CREATE TABLE "user"{
     user_uid UUID DEFAULT uuid_generate_v4() PRIMARY KEY UNIQUE NOT NULL,
     hashed_pass VARCHAR(255) NOT NULL
 };

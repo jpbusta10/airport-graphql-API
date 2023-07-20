@@ -1,5 +1,5 @@
-import { pool } from "../db/db";
-import AirportDTO from "../dtos/AirportDTO";
+import { pool } from "../db/db.js";
+import AirportDTO from "../dtos/AirportDTO.js";
 
 export class AirPortRepository{
     async getAll(): Promise<AirportDTO[]> {

@@ -1,4 +1,6 @@
-import { Pool } from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
+
 
 export const pool = new Pool({
     user: process.env.PG_USER!,
