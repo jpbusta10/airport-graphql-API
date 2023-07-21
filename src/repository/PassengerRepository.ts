@@ -7,8 +7,9 @@ export class PassengerRepository{
 
         try{
             const result = await pool.query(queryText);
-            return result.rows.map((row) => new PassengerDTO(row.passenger_id, 
-                row.passenger_name, row.passenger_last_name, row.passenger_email, row.country_of_birth));
+            let passengers = result.rows.map((row) => new PassengerDTO(row.passenger_uid, 
+                row.passenger_name, row.passenger_last_name, row.email, row.country_of_birth));
+                return passengers;
 
         }
         catch(err){

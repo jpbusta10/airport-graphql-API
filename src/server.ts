@@ -1,7 +1,8 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import airportResolver from './resolvers/AirportResolver.js';
-import PassengerResolver from './resolvers/PassengerResolver.js';
+import passengerResolver from './resolvers/PassengerResolver.js';
+import _ from 'lodash';
 
 const typeDefs = `
   type Airport {
@@ -11,7 +12,7 @@ const typeDefs = `
     gps_code: String
   }
   type Passenger {
-    passenger_id: ID!
+    passenger_id: ID
     passenger_name: String
     passenger_last_name: String
     passenger_email: String
@@ -24,16 +25,13 @@ const typeDefs = `
     getAllPassengers: [Passenger!]
   }
 `;
-const resolvers = {
-  ...airportResolver,
-  ...PassengerResolver,
-};
 
-const server = new ApolloServer({ 
-    typeDefs, 
-    resolvers
-   });
+const resolvers = _.merge(airportResolver, passengerResolver);
 
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
