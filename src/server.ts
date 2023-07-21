@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import airportResolver from './resolvers/AirportResolver.js';
-
+import PassengerResolver from './resolvers/PassengerResolver.js';
 
 const typeDefs = `
   type Airport {
@@ -10,17 +10,29 @@ const typeDefs = `
     airport_country: String
     gps_code: String
   }
-
+  type Passenger {
+    passenger_id: ID!
+    passenger_name: String
+    passenger_last_name: String
+    passenger_email: String
+    passenger_country_of_birth: String
+  }
+  
   type Query {
     getAllAirports: [Airport!]!
     getAirportByCode(airportCode: String!): Airport
+    getAllPassengers: [Passenger!]
   }
 `;
-
+const resolvers = {
+  ...airportResolver,
+  ...PassengerResolver,
+};
 
 const server = new ApolloServer({ 
     typeDefs, 
-    resolvers: airportResolver });
+    resolvers
+   });
 
 
 const { url } = await startStandaloneServer(server, {

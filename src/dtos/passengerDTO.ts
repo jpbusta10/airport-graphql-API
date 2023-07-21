@@ -1,12 +1,12 @@
 class PassengerDTO {
-    private _uuid: string;
+    private _id: string;
     private _firstName: string;
     private _lastName: string;
     private _email: string;
     private _countryOfBirth: string;
 
-    constructor(firstName: string, lastName: string, email:string, countryOfBirth: string, uuid?: string){
-        this._uuid = uuid;
+    constructor(id:string, firstName: string, lastName: string, email:string, countryOfBirth: string){
+        this._id = id;
         this._firstName = firstName;
         this._lastName = lastName;
         this._email = email;
@@ -14,7 +14,7 @@ class PassengerDTO {
     }
 
     get uuid(): string | undefined {
-        return this._uuid;
+        return this._id;
     }
 
     get firstName(): string {
@@ -26,8 +26,9 @@ class PassengerDTO {
     }
 
     get email(): string {
-        return this.email;
+        return this._email;
     }
+
     get countryOfBirth(): string {
         return this._countryOfBirth
     }
@@ -42,6 +43,9 @@ class PassengerDTO {
     }
     set countryOfBirth(countryOfBirth: string){
         this._countryOfBirth = countryOfBirth;
+    }
+    set id(id: string){
+        this._id = id;
     }
 
 }
