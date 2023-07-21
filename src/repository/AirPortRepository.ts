@@ -7,7 +7,7 @@ export class AirPortRepository{
 
         try{
             const result = await pool.query(queryText);
-            return result.rows.map((row)=>new AirportDTO(row.airport_code, row.airport_country, row.gps_code))
+            return result.rows.map((row)=>new AirportDTO(row.airport_id,row.airport_code, row.airport_country, row.gps_code));
         }
         catch(err){
             throw new Error('Unable to get airports');
@@ -23,7 +23,7 @@ export class AirPortRepository{
             return null;
           }
           const row = result.rows[0];
-          return new AirportDTO(row.airport_code, row.airport_country, row.gps_code);
+          return new AirportDTO(row.airport_id, row.airport_code, row.airport_country, row.gps_code);
         } catch (err) {
           throw new Error('Unable to get airport by code');
         }

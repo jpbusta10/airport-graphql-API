@@ -28,9 +28,10 @@ services:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_DB: ${PG_DATABASE}
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./src/db/schemas/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./src/db/schemas/airports-management.sql:/docker-entrypoint-initdb.d/airports-management.sql
       - ./src/db/schemas/airport.sql:/docker-entrypoint-initdb.d/airport.sql
       - ./src/db/schemas/passenger.sql:/docker-entrypoint-initdb.d/passenger.sql
     ports:

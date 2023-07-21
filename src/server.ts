@@ -5,9 +5,10 @@ import airportResolver from './resolvers/AirportResolver.js';
 
 const typeDefs = `
   type Airport {
-    airport_code: String!
-    airport_country: String!
-    gps_code: String!
+    airport_id: ID!
+    airport_code: String
+    airport_country: String
+    gps_code: String
   }
 
   type Query {
