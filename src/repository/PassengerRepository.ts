@@ -31,6 +31,21 @@ export class PassengerRepository{
             throw new Error('unable to get passenger');
         }
     }
+    async createPassenger(name: string, last_name: string, email: string, country_of_birth: string): Promise<String | null>{
+        const queryText = 'INSERT INTO passenger (passenger_name, passenger_last_name, email, country_of_birth) VALUES ($1, $2, $3, $4) RETURNING passenger_uid '
+        const values = [name, last_name, email, country_of_birth];
+        try{
+            const result = await pool.query(queryText, values);
+            if(result.rows === 0){
+                return null;
+            }
+            const id = result.rows[0].passenger_uid;
+            //console.log(id.toString());
+            return id.toString();
+        }catch(err){
+            throw new Error('unable to create passenger');
+        }
+    }
 
 }
 

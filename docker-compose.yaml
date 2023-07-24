@@ -34,7 +34,7 @@ services:
       - ./src/db/schemas/01-airports-management.sql:/docker-entrypoint-initdb.d/01-airports-management.sql
       - ./src/db/schemas/02-airport.sql:/docker-entrypoint-initdb.d/02-airport.sql
       - ./src/db/schemas/03-passenger.sql:/docker-entrypoint-initdb.d/03-passenger.sql
-      - ./src/db/schemas/04-airplane.sql:/docker-entrypoint-initdb.d/04-airplane.sql
+      - ./src/db/schemas/04-airplane.sql:/docker-entrypoint-initdb.d/04-airplanes.sql
     ports:
       - "5432:5432"
     

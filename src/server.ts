@@ -11,6 +11,7 @@ const typeDefs = `
     airport_country: String
     gps_code: String
   }
+  
   type Passenger {
     passenger_id: ID
     passenger_name: String
@@ -23,9 +24,11 @@ const typeDefs = `
     getAllAirports: [Airport!]!
     getAirportByCode(airportCode: String!): Airport
     getAllPassengers: [Passenger!]
-    getPassengerByFullName(name: String!, last_name: String!): Passenger
+    getPassengetByFullName(name: String!, last_name: String!): Passenger
+    createPassanger(name: String!, last_name: String!, email: String!, country_of_birth: String!): String
   }
 `;
+
 
 const resolvers = _.merge(airportResolver, passengerResolver);
 

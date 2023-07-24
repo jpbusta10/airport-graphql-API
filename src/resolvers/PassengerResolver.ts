@@ -13,13 +13,20 @@ const PassengerResolver = {
         throw new Error('Unable to get passengers');
       }
     },
-    getPassengetByFullName: async ({name}, {last_name}) => {
+    getPassengetByFullName: async (_, { name, last_name }) => {
       try {
             return await passengerRepository.getPassengerByFullName(name, last_name)
       } catch(err){
           throw new Error('unable to get passenger');
       }
     },
+    createPassanger: async (_, { name, last_name, email, country_of_birth }) => {
+      try{
+        return await passengerRepository.createPassenger(name, last_name, email, country_of_birth);
+      }catch(err){
+        throw new Error('unable to create passenger');
+      }
+    }
   },
   Passenger: {
     passenger_id: (passenger) => passenger._id,
