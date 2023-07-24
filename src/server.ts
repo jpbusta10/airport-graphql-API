@@ -23,6 +23,7 @@ const typeDefs = `
     getAllAirports: [Airport!]!
     getAirportByCode(airportCode: String!): Airport
     getAllPassengers: [Passenger!]
+    getPassengerByFullName(name: String!, last_name: String!): Passenger
   }
 `;
 

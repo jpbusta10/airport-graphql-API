@@ -13,7 +13,22 @@ export class PassengerRepository{
 
         }
         catch(err){
-            throw new Error('unableto get airports');
+            throw new Error('unableto get passengers');
+        }
+    }
+    async getPassengerByFullName(first_name: string, last_name: string): Promise<PassengerDTO | null>{
+        const queryText = 'SELECT * FROM passenger WHERE passenger_name = $1 AND passenger_last_name = $2';
+        const values = [first_name, last_name];
+        try{
+            const result = await pool.query(queryText, values);
+            if(result.rows === 0){
+                return null;
+            }
+            const row = result.rows[0];
+            return new PassengerDTO(row.passenger_id, row.passenger_name, row.passenger_last_name, row.email, row.passenger_country_of_birth);
+        }
+        catch(err){
+            throw new Error('unable to get passenger');
         }
     }
 
